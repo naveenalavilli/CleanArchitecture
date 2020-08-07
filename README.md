@@ -9,7 +9,7 @@ This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Mi
 This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
 
 ## Build status
-
+(Need to Configure)
 
 ## Tech/framework used
 * .Net Core 3.1
