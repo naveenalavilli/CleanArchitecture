@@ -10,6 +10,10 @@ This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://
 
 ## Build status
 (Need to Configure)
+https://github.com/naveenalavilli/CleanArchitecture/workflows/dotnet-core.yml/badge.svg
+
+![example workflow name](https://github.com/naveenalavilli/CleanArchitecture/workflows/Greet%20Everyone/badge.svg)
+  
 
 ## Tech/framework used
 * .Net Core 3.1
