@@ -104,8 +104,11 @@ namespace web.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    // Using an alternate way to confirm emails.
+                    // Token generations fail when the app id deployed on a webfarm.
 
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                                        
                     var code = EncryptString("b14ca5898a4e4133bbce2ea2315a1916", user.Email);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
