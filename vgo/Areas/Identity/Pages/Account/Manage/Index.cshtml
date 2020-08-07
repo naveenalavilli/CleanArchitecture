@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "My Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<form id="profile-form" method="post">
+
+    <div class="md-form input-group mb-2">
+        <div class="col-md-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text md-addon" id="material-addon1">User Name</span>
+            </div>
+            <input asp-for="Username" class="form-control" aria-label="First Name" aria-describedby="material-addon1" />
+
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="md-form input-group mb-2">
+        <div class="col-md-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text md-addon" id="material-addon1">First Name</span>
+            </div>
+            <input asp-for="Input.FirstName" class="form-control" aria-label="First Name" aria-describedby="material-addon1" />
+            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text md-addon" id="material-addon1">Last Name</span>
+            </div>
+            <input asp-for="Input.LastName" class="form-control" aria-label="Last Name" aria-describedby="material-addon1" />
+
+            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+
+        </div>
+
+    </div>
+
+    <div class="row mb-3 justify-content-center">
+        <div class="col-md-3 col-lg-3 mb-5">
+            <button id="update-profile-button" type="submit" class="btn btn-green lighten-3 text-light">Save</button>
+        </div>
+    </div>
+    <div class="md-form input-group mb-3">
+        <div class="col">
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+
+
+        $(document).ready(function () {
+
+
+
+
+        });
+
+    </script>
+}

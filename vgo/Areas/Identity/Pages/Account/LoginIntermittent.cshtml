@@ -1,0 +1,117 @@
+﻿@page
+@model LoginIntermittentModel
+
+@{
+    ViewData["Title"] = "Continue";
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-5 col-md-7 col-lg-5 mx-auto">
+            <div class="card">
+                <h5 class="card-header green light-2 white-text text-center py-4">
+                    <strong>Sign in</strong>
+                </h5>
+
+                <div class="card-body px-lg-5 pt-0">
+
+
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                            <div class="row mt-2 justify-content-md-center" style="flex-wrap: nowrap;">
+                                <div class="col-md-12 col-px-0">
+                                    @*<button type="submit" class="btn waves-effect waves-light" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">*@
+
+                                    @if (@provider.DisplayName.ToLower() == "google")
+                                    {
+                                        <button class="btn btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                                        @*<img type="image" name="submit" src="~/images/icons8-google-480.png" border="0" alt="Submit" style="width: 2em;" />*@
+                                    }
+                                    @if (@provider.DisplayName.ToLower() == "facebook")
+                                    {
+                                        <button class="btn btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                                        @*<img type="image" name="submit" src="~/images/icons8-facebook-480.png" border="0" alt="Submit" style="width: 2em;" />*@
+                                    }
+                                    @if (@provider.DisplayName.ToLower() == "twitter")
+                                    {
+                                        <button class="btn btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                                        @*<img type="image" name="submit" src="~/images/icons8-twitter-480.png" border="0" alt="Submit" style="width: 2em;" />*@
+                                    }
+                                    @if (@provider.DisplayName.ToLower() == "linkedin")
+                                    {
+                                        <button class="btn btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                                        @*<img type="image" name="submit" src="~/images/icons8-linkedin-480.png" border="0" alt="Submit" style="width: 2em;" />*@
+                                    }
+
+                                    @*</button>*@
+                                </div>
+                            </div>
+                        }
+
+                    </form>
+
+                    <hr />
+                    <h4>Or sign in with:</h4>
+
+                    <form id="account" method="post">
+                        <div class="text-center" style="color: #757575;" action="#!">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <div class="md-form">
+                                <input type="email" asp-for="Input.Email" class="form-control">
+                                <label asp-for="Input.Email">E-mail</label>
+                            </div>
+
+                            <div class="md-form">
+                                <input type="password" asp-for="Input.Password" class="form-control">
+                                <label asp-for="Input.Password">Password</label>
+                            </div>
+
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" asp-for="Input.RememberMe">
+                                        <label class="form-check-label" asp-for="Input.RememberMe">Remember me</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a asp-page="./ForgotPassword">Forgot Password?</a>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline-green font-weight-bold btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign In</button>
+                            <p>
+                                New User?
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-5 col-md-7 col-lg-5 mx-auto">
+            <div class="card">
+                <div class="card-body px-lg-5 pt-0">
+                    <div class="text-center" style="color: #757575;" action="#!">
+                        <a class="btn btn-outline-green font-weight-bold btn-rounded btn-block my-4 waves-effect z-depth-0"
+                           asp-controller="CardDetails" asp-action="CreateAsGuest">Continue as Guest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

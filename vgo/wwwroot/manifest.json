@@ -1,0 +1,20 @@
+﻿{
+  "name": "MyApp",
+  "short_name": "MyApp",
+  "background_color": "#398E3C",
+  "theme_color": "#FFFFFF",
+  "description": "Your App Description",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}

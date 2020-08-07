@@ -1,0 +1,151 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@*<h1>@ViewData["Title"]</h1>*@
+
+<div class="form-row justify-content-center">
+    <div class="col">
+
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h5>Register your new account.</h5>
+            <hr />
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="row mt-2">
+                <div class="col">
+                    <div class="form-group mt-0">
+                        <input type="text" class="form-control" asp-for="Input.FirstName" required autofocus>
+                        <label for="Input.FirstName"> First Name </label>
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group mt-0">
+
+                        <input type="text" class="form-control" asp-for="Input.LastName" required>
+                        <label for="Input.LastName"> Last Name </label>
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-1">
+                <div class="col">
+                    <div class="form-group mt-0">
+
+                        <input type="email" class="form-control" asp-for="Input.Email" required>
+                        <label for="Input.Email"> Email Address </label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mt-0">
+                        <input asp-for="Input.Password" class="form-control" />
+                        <label asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mt-0">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <button class="col-md-3 btn btn-primary"
+                        type="submit">
+                    Register
+                </button>
+            </div>
+
+        </form>
+        <br />
+
+        @{
+            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+            {
+                <div>
+                    @*<p>
+                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                        for details on setting up this ASP.NET application to support logging in via external services.
+                    </p>*@
+                </div>
+            }
+            else
+            {
+
+                <section>
+                    <h4>Or Use</h4>
+
+                    <hr />
+
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit"
+                                            class="btn btn-google btn-block"
+                                            name="provider"
+                                            value="@provider.Name"
+                                            title="Sign up using your @provider.DisplayName account">
+
+
+                                        @if (@provider.DisplayName.ToLower() == "google")
+                                        {
+
+                                            <img type="image" name="submit"
+                                                 src="~/images/icons8-google-480.png"
+                                                 border="0"
+                                                 alt="" style="width: 1em;" />
+                                        }
+                                        @if (@provider.DisplayName.ToLower() == "facebook")
+                                        {
+                                            <img type="image" name="submit"
+                                                 src="~/images/icons8-facebook-480.png"
+                                                 border="0"
+                                                 alt="" style="width: 1em;" />
+                                        }
+                                        @if (@provider.DisplayName.ToLower() == "twitter")
+                                        {
+                                            <i class="fab fa-twitter mr-2"></i>
+                                        }
+                                        @if (@provider.DisplayName.ToLower() == "linkedin")
+                                        {
+                                            <i class="fab fa-linkedin-in mr-2"></i>
+                                        }
+                                        @provider.DisplayName
+
+                                    </button>
+
+                                }
+                            </p>
+                        </div>
+                    </form>
+                    }
+
+                </section>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

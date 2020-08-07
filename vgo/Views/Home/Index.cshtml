@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ApplicationCore.Data.Entities
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            console.log("Hello World");
+        });
+    </script>
+}

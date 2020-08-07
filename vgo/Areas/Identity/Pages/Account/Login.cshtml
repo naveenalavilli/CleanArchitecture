@@ -1,0 +1,157 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-1">
+                <div class="card-body" style="padding: 1rem">
+                    <form id="account" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <p class="h3 text-center"> Login</p>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" asp-for="Input.Email" placeholder="Email Address" autofocus>
+                        </div>
+
+
+                        <div class="form-group mt-2">
+                            <input type="password" asp-for="Input.Password" class="form-control" placeholder="Password">
+                        </div>
+                                              
+
+                        <div class="row justify-content-between mx-auto mt-1">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">
+                                    Sign In
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-between mx-auto">
+                            <div class="col text-center">
+                                <h6 class="mb-1">
+                                    <a id="Resend_Email_Verification" asp-page="./ResendVerification" asp-route-returnUrl="@Model.ReturnUrl"
+                                       class="font-small text-uppercase mb-1" style="float:left">
+                                        <small>Resend Email Confirmation</small>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div class="col text-center">
+                                <h6 class="mb-1">
+                                    <a id="forgot-password" asp-page="./ForgotPassword" class="font-small text-uppercase mb-1 text-right">
+                                        <small>
+                                            Forgot your password?
+                                        </small>
+                                    </a>
+                                </h6>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-between mx-auto mt-2">
+                            <div class="col text-center">
+                                <h6 class="mb-1">
+                                    New User?
+                                    <a class=" ml-1 text-uppercase" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">
+                                        Register
+                                    </a>
+
+                                </h6>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+
+
+                    @{
+                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                        {
+                        }
+                        else
+                        {
+
+                            <hr />
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <div class="row justify-content-md-center">
+
+                                        <div class="col-md-12 col-px-0">
+                                            <button type="submit"
+                                                    class="
+                                                    btn btn-outline-green font-weight-bold btn-rounded btn-block my-1 waves-effect z-depth-0"
+                                                    name="provider"
+                                                    value="@provider.Name" title="Log in using your @provider.DisplayName account">
+
+                                                @if (@provider.DisplayName.ToLower() == "google")
+                                                {
+                                                    <img type="image" name="submit"
+                                                         src="~/images/icons8-google-480.png"
+                                                         border="0"
+                                                         alt="" style="width: 1em;" />
+                                                    @:Sign In with Google
+                                                }
+                                                @if (@provider.DisplayName.ToLower() == "facebook")
+                                                {
+                                                    <img type="image" name="submit"
+                                                         src="~/images/icons8-facebook-480.png" border="0"
+                                                         alt="" style="width: 1em;" />
+                                                    @:Sign In with Facebook
+                                                }
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                }
+
+                            </form>
+
+
+                        }}
+                    @if (Model.IsAllowAnonymousPass)
+                    {
+                        <hr />
+
+                        <div class="row mt-2 justify-content-md-center" style="flex-wrap: nowrap;">
+                            <div class="col-md-12 col-px-0">
+                                <a class="btn btn-outline-green font-weight-bold btn-rounded btn-block my-4 waves-effect z-depth-0"
+                                   asp-controller="CardDetails" asp-action="CreateAsGuest">
+                                    Continue as Guest
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-md-center" style="flex-wrap: nowrap;">
+                            <div class="col-md-12 col-px-0">
+                                <div class="h6 text-center text-muted">
+                                    <i class="fas fa-exclamation-circle"></i> You will not be able to manage your pages when logged in as Guest.
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

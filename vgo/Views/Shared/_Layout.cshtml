@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ApplicationCore.Data.Entities
+@inject Microsoft.AspNetCore.Hosting.IHostingEnvironment hostEnv
+@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164243645-1"></script>
+    <script>
+//Google Analytics 
+    </script>
+
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="The Smart and Digital Business Card ! Share your business contact information , with anyone in the world , Touch-Free!">
+    <meta name="keywords" content="Business , Business Cards , Virtual Business Cards,Profile Page,Profile,Touch Free Card,Touchless Card, Business Tags , Global Id Card, Contact Information, Share Contact Information,Share contact">
+    <meta name="author" content="Naveen Alavilli">
+
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <meta content='yes' name='mobile-web-app-capable' />
+
+    <title>Clean Architecture - App </title>
+
+    <meta name="msvalidate.01" content="E9E7C2B219891033DFCDDC65B75246F3" />
+
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/9f2ca4fba1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="~/css/flag.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <link href="~/css/mdb.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+        
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon-16x16.png">
+       
+    <script src="~/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+
+</head>
+<body class="d-flex flex-column ;'" style="background-color:#fff">
+
+    <header>
+        <div style="background-color: white;">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3" style="background:#F8F8F8">
+                <div class="container">
+                   
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <h1 class="font-weight-bold robotoslab">My Clean Arch. App</h1>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="page-content">
+        
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <partial name="_footer.cshtml" />
+
+    <partial name="_CookieConsentPartial.cshtml" />
+       
+    @RenderSection("Scripts", required: false)
+       
+    <script async type="text/javascript" src="~/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script async type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script async src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+</body>
+</html>

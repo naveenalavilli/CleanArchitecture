@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Domain.ViewModels.StateViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                State Abbreviation
+            </th>
+            <th>
+                Created On
+            </th>
+            <th>
+                Updated On
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressState.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressState.StateAbbreviation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressState.CreatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressState.UpdatedOn)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AddressState.StateId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AddressState.StateId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AddressState.StateId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

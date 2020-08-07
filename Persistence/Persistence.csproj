@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191130222214_AddedRide.cs" />
+    <Compile Remove="Migrations\20191130222214_AddedRide.Designer.cs" />
+    <Compile Remove="Migrations\20200402014700_updatedCardKey.cs" />
+    <Compile Remove="Migrations\20200402014700_updatedCardKey.Designer.cs" />
+    <Compile Remove="Migrations\20200402015502_updatedCardKey.cs" />
+    <Compile Remove="Migrations\20200402015502_updatedCardKey.Designer.cs" />
+    <Compile Remove="Migrations\20200807054023_AddedLogTAble.cs" />
+    <Compile Remove="Migrations\20200807054023_AddedLogTAble.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="3.1.6" />
+    <PackageReference Include="NetTopologySuite" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
+  </ItemGroup>
+
+</Project>
