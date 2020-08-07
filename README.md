@@ -35,3 +35,6 @@ This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://
 * Microsoft Docs
 * Tons of blogs, tutorials on Youtube.
 * Stack Overflow!
+
+## About me
+* [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
