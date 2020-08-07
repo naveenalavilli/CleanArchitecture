@@ -20,12 +20,12 @@ using Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication;
-using web.middleware;
+//using web.middleware;
 using Domain;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace vgo
+namespace CleanArch
 {
     public class Startup
     {

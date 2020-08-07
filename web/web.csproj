@@ -75,9 +75,9 @@
 
 
   <ItemGroup>
+    <Folder Include="middleware\" />
     <Folder Include="wwwroot\font\" />
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\LookUps\" />
   </ItemGroup>
 
 </Project>

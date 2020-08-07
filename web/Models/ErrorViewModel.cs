@@ -1,6 +1,6 @@
 using System;
 
-namespace vgo.Models
+namespace CleanArch.Models
 {
     public class ErrorViewModel
     {

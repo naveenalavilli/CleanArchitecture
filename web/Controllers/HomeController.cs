@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using vgo.Models;
+using CleanArch.Models;
 
-namespace vgo.Controllers
+namespace CleanArch.Controllers
 {
     public class HomeController : Controller
     {

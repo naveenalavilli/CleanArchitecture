@@ -13,7 +13,7 @@ using Serilog.Events;
 using web;
 using web.contracts;
 
-namespace vgo
+namespace CleanArch
 {
     public class Program
     {

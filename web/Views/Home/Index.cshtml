@@ -6,9 +6,74 @@
 
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Clean Architecture";
 }
 
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, Clean Architecture!</h1>
+    <p> Read about Clean Arhitecture <a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank"> here <i class="fas fa-external-link-alt"></i> </a>.
+    Essentially, it is a multi-layered approach to design an application, 
+    where each layer is <br /> <span class="lead">Framework Independent, Testable, Independent of UI/Database/External Services.</span> </p>
+    <p class="lead">This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Microsoft Identity, Entity Framework Core. </p>
+    <hr class="my-4">
+    <p>This also supports PWA , so the web application can be converted to Mobile Apps easily.</p>
+    <p class="lead">
+        <span class="h4 text-muted"> You can download the repo on GitHub:</span><br />
+        <a class="btn btn-primary btn-lg" href="https://github.com/naveenalavilli/CleanArchitecture" target="_blank" role="button">https://github.com/naveenalavilli/CleanArchitecture</a>
+    </p>
+</div>
+
+
+<div class="mt-2">
+    <p class="h4">
+        This project has these features built-in:
+    </p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">User Authentication, using Identity, and OAuth providers (Google,Facebook,LinkedIn)</li>
+        <li class="list-group-item">SendGrid support, to send emails.</li>
+        <li class="list-group-item">CRUD for States. <span class="text-muted">This can be used as example to work on other Entities in any project. </span> </li>
+        <li class="list-group-item">PWA Support. The users can install this app on thier Mobiles , without getting from PlayStore/AppStore.</li>
+        <li class="list-group-item">SeriLog Support , to log events/Exceptions in the database.</li>
+        <li class="list-group-item">Uses JQuery, BootStrap 4 and Font Awesome</li>
+
+    </ul>
+</div>
+
+<div class="mt-2">
+    <p class="h4">
+        How to setup:
+    </p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Clone the project from <a href="https://github.com/naveenalavilli/CleanArchitecture" target="_blank">GitHub</a></li>
+        <li class="list-group-item">Configure Database in AppSettings.Json</li>
+        <li class="list-group-item">Run <span class="lead">update-database</span> in Pakage Manager Console , with Default Project set to Persistence</li>
+        <li class="list-group-item">Configure OAuth settings in AppSettings.json, if desired.</li>
+    </ul>
+</div>
+
+<div class="mt-2">
+    <p class="h4">
+        Things to note:
+    </p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">The users are all activated, without confirming their Emails. Configure SendGrid to fix it.</li>
+        <li class="list-group-item">
+
+        </li>
+    </ul>
+</div>
+
+<div class="mt-2">
+    <p class="h4">
+        Thanks to :
+    </p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <a href="https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1" target="_blank">Microsoft Docs</a> </li>
+        <li class="list-group-item"> Tons of blogs, tutorials on Youtube.</li>
+        <li class="list-group-item"> Stack Overflow!</li>
+    </ul>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
