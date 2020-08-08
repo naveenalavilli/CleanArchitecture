@@ -6,7 +6,7 @@ Framework Independent, Testable, Independent of UI/Database/External Services.
 This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Microsoft Identity, Entity Framework Core.
 
 ## Demo App:
-This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
+This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
 
 ## Build status
 ![Build](https://github.com/naveenalavilli/CleanArchitecture/workflows/Build/badge.svg)
