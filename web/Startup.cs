@@ -138,6 +138,7 @@ namespace CleanArch
             //});
 
             // For Dependency Injection
+            // Add new Domain Services here
             services.AddTransient<IAddressStateService, AddressStateService>();
         }
 
