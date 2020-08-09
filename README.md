@@ -37,5 +37,5 @@ This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](http
 * Tons of blogs, tutorials on Youtube.
 * Stack Overflow!
 
-## About me
-* [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
+## Questions
+* you can write to me at [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
