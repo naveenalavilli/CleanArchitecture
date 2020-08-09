@@ -2,14 +2,15 @@
 Read about Clean Arhitecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). Essentially, it is a multi-layered approach to design an application, where each layer is
 Framework Independent, Testable, Independent of UI/Database/External Services.
 
-## Features
 This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Microsoft Identity, Entity Framework Core.
 
 ## Demo App:
-This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
+This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
 
 ## Build status
+![Build](https://github.com/naveenalavilli/CleanArchitecture/workflows/Build/badge.svg)
 
+  
 
 ## Tech/framework used
 * .Net Core 3.1
@@ -35,3 +36,6 @@ This code is running on [https://cleanarchdotnetcore.azurewebsites.net](https://
 * Microsoft Docs
 * Tons of blogs, tutorials on Youtube.
 * Stack Overflow!
+
+## About me
+* [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
