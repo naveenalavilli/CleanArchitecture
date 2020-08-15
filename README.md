@@ -22,7 +22,7 @@ This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](http
 * User Authentication, using Identity, and OAuth providers (Google,Facebook,LinkedIn)
 * SendGrid support, to send emails.
 * CRUD for States. This can be used as example to work on other Entities in any project.
-* PWA Support. The users can install this app on thier Mobiles , without getting from PlayStore/AppStore.
+* PWA Support. The users can install this app on their Mobiles , without getting from PlayStore/AppStore.
 * SeriLog Support , to log events/Exceptions in the database.
 * Uses JQuery, BootStrap 4 and Font Awesome
 
