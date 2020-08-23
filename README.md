@@ -1,3 +1,5 @@
+![Build](https://github.com/naveenalavilli/CleanArchitecture/workflows/Build/badge.svg)
+
 ## Clean Architecture
 Read about Clean Arhitecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). Essentially, it is a multi-layered approach to design an application, where each layer is
 Framework Independent, Testable, Independent of UI/Database/External Services.
@@ -7,10 +9,8 @@ This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Mi
 ## Demo App:
 This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](https://cleanarchdotnetcore.azurewebsites.net)
 
-## Build status
-![Build](https://github.com/naveenalavilli/CleanArchitecture/workflows/Build/badge.svg)
-
-  
+## Give a Star :star:
+If you like or are using this template for your project, please give it a star. Thanks!  
 
 ## Tech/framework used
 * .Net Core 3.1
