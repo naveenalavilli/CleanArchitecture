@@ -26,7 +26,7 @@ This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](http
 * SeriLog Support , to log events/Exceptions in the database.
 * Uses JQuery, BootStrap 4 and Font Awesome
 
-## Installation
+## Getting Started
 * Clone the project from GitHub
 * Configure Database in AppSettings.Json
 * Run update-database in Pakage Manager Console , with Default Project set to Persistence
@@ -36,6 +36,9 @@ This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](http
 * Microsoft Docs
 * Tons of blogs, tutorials on Youtube.
 * Stack Overflow!
+
+## Issues
+Please create any issue [here](https://github.com/naveenalavilli/CleanArchitecture/issues/new/choose)
 
 ## Questions
 * you can write to me at [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
