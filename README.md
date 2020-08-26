@@ -32,6 +32,13 @@ If you like or are using this template for your project, please give it a star. 
 * Run update-database in Pakage Manager Console , with Default Project set to Persistence
 * Configure OAuth settings in AppSettings.json, if desired.
 
+## Contributing
+* Fork it!
+* Create your feature branch: git checkout -b my-new-feature
+* Commit your changes: git commit -am 'Add some feature'
+* Push to the branch: git push origin my-new-feature
+* Submit a pull request.
+
 ## Credits
 * Microsoft Docs
 * Tons of blogs, tutorials on Youtube.
