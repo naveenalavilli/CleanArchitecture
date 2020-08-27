@@ -49,3 +49,6 @@ Please create any issue [here](https://github.com/naveenalavilli/CleanArchitectu
 
 ## Questions
 * you can write to me at [https://www.linkedin.com/in/alavilli](https://www.linkedin.com/in/alavilli/)
+
+## This project isn't easy! :)
+<a href="https://www.buymeacoffee.com/alavillink" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-orange.png" alt="Buy Me A Coffee" style="height: 10px !important;" ></a>
