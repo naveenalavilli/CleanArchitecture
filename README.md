@@ -1,7 +1,7 @@
 ![Build](https://github.com/naveenalavilli/CleanArchitecture/workflows/Build/badge.svg)
 
 ## Clean Architecture
-Read about Clean Arhitecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). Essentially, it is a multi-layered approach to design an application, where each layer is
+Read about Clean Architecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). Essentially, it is a multi-layered approach to design an application, where each layer is
 Framework Independent, Testable, Independent of UI/Database/External Services.
 
 This is a .Net Core 3.1 MVC based Web Application, with in-built Bootstrap 4, Microsoft Identity, Entity Framework Core.
