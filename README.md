@@ -41,7 +41,7 @@ If you like or are using this template for your project, please give it a star. 
 
 ## Credits
 * Microsoft Docs
-* Tons of blogs, tutorials on Youtube.
+* Tons of blogs, tutorials on YouTube.
 * Stack Overflow!
 
 ## Issues
