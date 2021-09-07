@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Observers;
 
 namespace services
 {
@@ -30,20 +31,42 @@ namespace services
             _logger = logger;
         }
 
-        public async Task<AddressState> GetAddress(Guid AddressStateId)
+
+        public List<IStateObserver> Observers = new List<IStateObserver>();
+
+        public void UpdateOrder(AddressState State)
         {
-           // StateViewModel stateViewModel = new StateViewModel();
+            Notify(State);
+        }
+
+        public void Attach(IStateObserver observer)
+        {
+            Observers.Add(observer);
+        }
+
+        public void Detach(IStateObserver observer)
+        {
+            Observers.Remove(observer);
+        }
+
+        public void Notify(AddressState order)
+        {
+            foreach (var observer in Observers)
+            {
+                observer.Update(order);
+            }
+        }
+
+
+
+        public async Task<AddressState> GetAddress(Guid AddressStateId)
+        {           
             var addressState = await _context.AddressState.Include(c => c.UpdatedBy).FirstOrDefaultAsync(m => m.StateId == AddressStateId);
             if (addressState == null)
             {
                 return null;
             }
-            return addressState;
-            //stateViewModel.StateId = addressState.StateId;
-            //stateViewModel.AddressState = addressState;
-            //stateViewModel.Country = "USA";
-            //stateViewModel.CreatedBy = addressState.UpdatedBy.Email;
-            //return stateViewModel;
+            return addressState;            
         }
 
         public async Task<List<StateViewModel >> GetAllAddresses()
@@ -79,6 +102,8 @@ namespace services
 
             _context.Update(AddressState);
             await _context.SaveChangesAsync();
+
+            Notify(AddressState);
 
             return AddressState;
         }

@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Data.Entities;
+using Domain.Observers;
 using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace services.contracts
 {
-    public interface IAddressStateService
+    public interface IAddressStateService:IStateNotifier
     {
         bool IsAddressStateExist(Guid AddressStateId);
 
@@ -20,5 +21,6 @@ namespace services.contracts
         Task<bool> DeleteAddressState(Guid AddressStateId);
         Task<bool> DeleteAddressStateByAppUserId(Guid AppUserId);
 
+        //void UpdateOrder(AddressState State);
     }
 }

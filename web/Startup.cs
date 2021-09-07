@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Authentication;
 using Domain;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Domain.Observers;
 
 namespace CleanArch
 {
@@ -80,7 +81,7 @@ namespace CleanArch
 
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("SendGrid"));
+            services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("Emailyt"));
 
             services.AddAuthentication();
             //.AddGoogle(options =>
@@ -140,6 +141,7 @@ namespace CleanArch
             // For Dependency Injection
             // Add new Domain Services here
             services.AddTransient<IAddressStateService, AddressStateService>();
+            services.AddTransient<IEmailObserver, EmailObserver>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -93,7 +93,7 @@ namespace web.Areas.Identity.Pages.Account
                     LastName = Input.LastName,
                     UserName = Input.Email,
                     Email = Input.Email,
-                    EmailConfirmed = true // Manually confirming the email.
+                    //EmailConfirmed = true // Manually confirming the email.
                 };
 
 

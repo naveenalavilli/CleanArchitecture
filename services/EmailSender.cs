@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -13,8 +14,8 @@ namespace services
 {
     public class AuthMessageSenderOptions
     {
-        public string SendGridUser { get; set; }
-        public string SendGridKey { get; set; }
+        public string AuthCode { get; set; }
+        public string PrivateKey { get; set; }
     }
 
     public class EmailSender : IEmailSender
@@ -26,36 +27,21 @@ namespace services
 
         public AuthMessageSenderOptions Options { get; set; }
 
-
-        //public Task SendEmailToAdminAsync(string email, string subject, string message,bool toAdmin)
-        //{
-
-        //        return Execute(Options.SendGridKey, "Customer Message", message, "alavillinaveenkumar@gmail.com");
-        //}
-
-        // public Task SendEmailAsync(string email, string subject, string message)
         public Task SendEmailAsync(string email, string EmailType, string CallBackURL)
         {
             string subject = string.Empty;
             string message = string.Empty;
-            string content = string.Empty;
+            
             switch (EmailType)
             {
                 case "CONFIRM":
                     subject = "Confirm Your Email";
 
-                    var url = "URL TO Email Template Text File";
-
-                    //content = (new WebClient()).DownloadString(url);
-
                     message = "To verify : $EmailValue$ , Click $VerificationEmailValue$";
                     message = message.Replace("$EmailValue$", email).Replace("$VerificationEmailValue$", CallBackURL);
                     break;
                 case "RESET":
-                    subject = "Reset Your Password";
-                    var Reseturl = "URL TO Email Template Text File";
-
-                    //content = (new WebClient()).DownloadString(Reseturl);
+                    subject = "Reset Your Password";                  
                     message = "Click here : $ResetLinkValue$ To Reset";
                     message = message.Replace("$ResetLinkValue$", CallBackURL);
                     break;
@@ -63,7 +49,7 @@ namespace services
                     subject = "";
                     break;
             }
-            return Execute(Options.SendGridKey, subject, message, email);
+           return SendEmail(Options.AuthCode, Options.PrivateKey, subject, message, email);
         }
 
         public Task SendEmailConfirmationAsync(string email, string subject, string EmailConfirmationLink, string EmailToConfirm)
@@ -74,28 +60,39 @@ namespace services
             //REad from placeHolder File
             message = message.Replace("$EmailValue$", EmailToConfirm).Replace("$VerificationEmailValue$", EmailConfirmationLink);
 
-            return Execute(Options.SendGridKey, subject, message, email);
+          return  SendEmail(Options.AuthCode,Options.PrivateKey , subject, message, email);
         }
 
-        public Task Execute(string apiKey, string subject, string message, string email)
+        /// <summary>
+        /// Sending Email using Emailyt email service
+        /// which is free!
+        /// </summary>
+        /// <param name="authCode"></param>
+        /// <param name="privateKey"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <param name="email"></param>
+        public Task SendEmail(string authCode,string privateKey, string subject, string message, string email)
         {
-            // return Task.FromResult(SendEmail(subject, message, email));
+            
+            string baseURL = "https://emailyt.com/";
 
-            var client = new SendGridClient(apiKey);
-            var msg = new SendGridMessage()
-            {
-                From = new EmailAddress("YourEmail@yopmail.com", "Your Domain"),
-                Subject = subject,
-                PlainTextContent = message,
-                HtmlContent = message
-            };
-            msg.AddTo(new EmailAddress(email));
+            string api = "DispatchEmail";
 
-            // Disable click tracking.
-            // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
-            msg.SetClickTracking(false, false);
+            using var wb = new WebClient();
 
-            return client.SendEmailAsync(msg);
+            var data = new NameValueCollection();
+
+            data["AuthCode"] = authCode;
+            data["PrivateKey"] = privateKey;
+
+            data["ToEmail"] = email;
+                        
+            data["Subject"] = subject;
+            data["MailBody"] = message;
+
+            var response = wb.UploadValues(baseURL + api, "POST", data);
+            return Task.CompletedTask;
         }
     }
 }

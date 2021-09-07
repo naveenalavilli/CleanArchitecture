@@ -12,6 +12,7 @@ using services.contracts;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Domain.Observers;
 
 namespace web.Controllers
 {
@@ -20,12 +21,14 @@ namespace web.Controllers
     {
         private readonly IAddressStateService _addressStateService;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IEmailObserver _emailObserver;
 
 
-        public AddressStatesController(UserManager<ApplicationUser> userManager, IAddressStateService addressStateService)
+        public AddressStatesController(UserManager<ApplicationUser> userManager, IAddressStateService addressStateService, IEmailObserver emailObserver)
         {
             _userManager = userManager;
             _addressStateService = addressStateService;
+            _emailObserver = emailObserver; ;
         }
 
         // GET: AddressStates
@@ -97,6 +100,12 @@ namespace web.Controllers
             {
                 try
                 {
+
+                    // Attaching Observers..
+                    _addressStateService.Attach(_emailObserver);
+
+                    //Updating Order Status...
+
                     await _addressStateService.UpdateAddress(addressState);
                 }
                 catch (DbUpdateConcurrencyException)
@@ -137,7 +146,7 @@ namespace web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-           await _addressStateService.DeleteAddressState(id);
+            await _addressStateService.DeleteAddressState(id);
             return RedirectToAction(nameof(Index));
         }
 
