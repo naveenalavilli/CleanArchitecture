@@ -17,29 +17,17 @@ namespace CleanArch
 {
     public class Program
     {
-        //private readonly IRideService _rideService;
-
-        //public Program(IRideService rideService)
-        //{
-        //    _rideService = rideService;
-        //}
+        
 
         public static void Main(string[] args)
         {
-            ////            Log.Logger = new LoggerConfiguration()
-            ////           .MinimumLevel.Debug()
-            //////           .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            ////           .Enrich.FromLogContext()
-            ////          // .WriteTo.File("logs/log-.txt",LogEventLevel.Debug, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}", rollingInterval: RollingInterval.Day)
-            ////           .CreateLogger();
-
+        
 
             var path = Directory.GetCurrentDirectory();
             var environmentName = "Development";// Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
             var configuration = new ConfigurationBuilder()
-            .SetBasePath(path)
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .SetBasePath(path)           
             .AddJsonFile($"appsettings.{environmentName}.json", optional: false, reloadOnChange: true)
             .Build();
 
@@ -65,13 +53,7 @@ namespace CleanArch
             }
         }
 
-        //public static void DoWork()
-        //{
-        //    _rideService.ExpireOldRides();
-        //    Console.WriteLine("Working thread...");
-        //    Thread.Sleep(2 * 60 * 1000);
-        //    DoWork();
-        //}
+      
 
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
