@@ -13,7 +13,7 @@ This project is deployed on [https://cleanarchdotnetcore.azurewebsites.net](http
 If you like or are using this template for your project, please give it a star. Thanks!  
 
 ## Tech/framework used
-* .Net Core 3.1
+* .Net 5
 * MS SQL
 * Bootstrap 4
 * JQuery
